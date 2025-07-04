@@ -1,5 +1,7 @@
 from product import Product
 from product_manager import ProductManager
+from cart import Cart
+import random
 
 manager = ProductManager()
 
@@ -11,5 +13,11 @@ manager.add_product(p1)
 manager.add_product(p2)
 manager.add_product(p3)
 
-manager.display_products()
-manager.calculate_total_value()
+cart = Cart()
+
+selected_products = random.sample(manager.products, 3)
+for product in selected_products:
+    cart.add_to_cart(product)
+
+cart.display_cart()
+print(f"Valoarea totală de plată a coșului: {cart.calculate_total()}")
