@@ -14,3 +14,6 @@ class ProductManager:
     def calculate_total_value(self):
         total = sum(product.price * product.quantity for product in self.products)
         print(f"Valoarea totală a inventarului: {total}")
+
+    def remove_product_by_name(self, name):
+        self.products = [product for product in self.products if product.name != name]
